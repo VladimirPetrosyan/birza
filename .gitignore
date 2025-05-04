@@ -1,0 +1,22 @@
+# Node
+node_modules/
+.dist/
+*.log
+npm-debug.log*
+
+# Vite
+.vite/
+*.tsbuildinfo
+
+# Windows
+Thumbs.db
+
+# JetBrains (WebStorm, IntelliJ)
+.idea/
+
+# Cache
+.cache/
+.tmp/
+.temp/
+
+*.ps1
