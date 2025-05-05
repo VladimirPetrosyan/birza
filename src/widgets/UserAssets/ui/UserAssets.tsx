@@ -2,8 +2,14 @@ import {Box, Button, Icon, Typography} from '@mui/material';
 import Up from '@/shared/assets/icons/Up.svg?react'
 import Down from '@/shared/assets/icons/Down.svg?react'
 import Tre from '@/shared/assets/icons/tre.svg?react'
+import {WithdrawModal} from '@/features/WithdrawModal'
+import {DepositModal} from '@/features/DepositModal'
+import {useState} from "react";
+
 
 export const UserAssets = () => {
+    const [isWithdrawOpen, setWithdrawOpen] = useState(false);
+    const [isDepositOpen, setDepositOpen] = useState(false);
     return (
         <Box
             mt={2}
@@ -46,6 +52,7 @@ export const UserAssets = () => {
             <Box mt={2} display="flex" gap={2}>
                 <Button
                     fullWidth
+                    onClick={() => setDepositOpen(true)}
                     variant="contained"
                     startIcon={<Up />}
                     sx={{
@@ -58,6 +65,7 @@ export const UserAssets = () => {
                    Внести
                 </Button>
                 <Button
+                    onClick={() => setWithdrawOpen(true)}
                     fullWidth
                     variant="contained"
                     startIcon={<Down />}
@@ -70,6 +78,8 @@ export const UserAssets = () => {
                 >
                     Вывести
                 </Button>
+                <WithdrawModal open={isWithdrawOpen} onClose={() => setWithdrawOpen(false)}/>
+                <DepositModal open={isDepositOpen} onClose={() => setDepositOpen(false)}/>
             </Box>
         </Box>
     );

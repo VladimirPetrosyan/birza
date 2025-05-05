@@ -126,13 +126,13 @@ export const TokenChart = () => {
             </Box>
 
             <ChartControls period={period} onChange={setPeriod} />
-            <Divider sx={{ my: 1, bgcolor: '#333' }} />
 
             <Box
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
                 gap={4}
+                paddingTop="26px"
             >
                 <Box textAlign="center" display={'flex'} gap={'1rem'} flexDirection="column">
                     <Typography

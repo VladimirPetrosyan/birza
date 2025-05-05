@@ -2,15 +2,25 @@
 import { Avatar, Box, IconButton, Typography } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import SyncIcon from '@mui/icons-material/Sync';
+import React, {useState} from "react";
+import {OrdersModal} from "@/features/OrderModal";
+
+
+
+
 
 export const UserGreeting = () => {
+    const [openOrders, setOpenOrders] = useState(false);
+    console.log('openOrders:', openOrders);
+
     return (
+        <>
         <Box
             display="flex"
             alignItems="center"
             justifyContent="space-between"
             px={2}
-            pt={3}
+            pt={'36px'}
         >
             {/* Левая часть: Аватар + текст */}
             <Box display="flex" alignItems="center" gap={2}>
@@ -37,6 +47,7 @@ export const UserGreeting = () => {
 
             {/* Правая часть: иконка */}
             <IconButton
+                onClick={() => setOpenOrders(true)}
                 sx={{
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
                     backdropFilter: 'blur(6px)',
@@ -55,6 +66,8 @@ export const UserGreeting = () => {
                 <SyncIcon fontSize="small" />
             </IconButton>
         </Box>
+        <OrdersModal open={openOrders} onClose={() => setOpenOrders(false)} />
+        </>
     );
 };
 

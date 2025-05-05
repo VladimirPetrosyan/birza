@@ -26,13 +26,21 @@ export const SellTokenModal = ({ open, onClose }: SellTokenModalProps) => {
             anchor="bottom"
             open={open}
             onClose={onClose}
+            ModalProps={{
+                BackdropProps: {
+                    sx: {
+                        backdropFilter: 'blur(12px)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    },
+                },
+            }}
             PaperProps={{
                 sx: {
                     borderTopLeftRadius: "20px",
                     borderTopRightRadius: "20px",
                     backgroundColor: "#121212",
                     p: 3,
-                    pb: `${24 + keyboardOffset}px`,
+                    pb: `${48 + keyboardOffset}px`,
                     transition: "padding-bottom 0.3s ease",
                 },
             }}
@@ -60,7 +68,7 @@ export const SellTokenModal = ({ open, onClose }: SellTokenModalProps) => {
             </Box>
 
 
-            <Box display="flex" alignItems="center" mb={3}>
+            <Box display="flex" alignItems="center">
                 <TextField
                     fullWidth
                     label="Сумма $SHIB"

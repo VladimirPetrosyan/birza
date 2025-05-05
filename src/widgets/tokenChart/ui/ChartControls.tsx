@@ -21,7 +21,7 @@ export const ChartControls: React.FC<Props> = ({ period, onChange }) => {
         <Box
             display="flex"
             justifyContent="center"
-            gap={2}
+            gap={'38px'}
             mt={2}
         >
             {periods.map((p) => (

@@ -6,7 +6,7 @@ import WorkIcon from '@/shared/assets/icons/Profile.svg?react';
 import BarChartIcon from '@/shared/assets/icons/Birza.svg?react';
 
 const navItems = [
-    { label: 'Портфель', icon: WorkIcon, to: '/profile' },
+    { label: 'Профиль', icon: WorkIcon, to: '/profile' },
     { label: 'Главная', icon: HomeIcon, to: '/' },
     { label: 'Статистика', icon: BarChartIcon, to: '/birza' },
 ];

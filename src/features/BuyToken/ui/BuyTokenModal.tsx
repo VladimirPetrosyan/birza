@@ -1,7 +1,7 @@
 // src/features/buyToken/ui/BuyTokenModal.tsx
 import { Drawer, Box, Typography, Button, TextField } from "@mui/material";
 import BuyIcon from "@/shared/assets/icons/buy.svg?react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useKeyboardOffset } from "@/shared/hooks/useKeyboardOffset"; // 👈 Импортируем хук
 
 interface BuyTokenModalProps {
@@ -26,13 +26,21 @@ export const BuyTokenModal = ({ open, onClose }: BuyTokenModalProps) => {
             anchor="bottom"
             open={open}
             onClose={onClose}
+            ModalProps={{
+                BackdropProps: {
+                    sx: {
+                        backdropFilter: 'blur(12px)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    },
+                },
+            }}
             PaperProps={{
                 sx: {
                     borderTopLeftRadius: "20px",
                     borderTopRightRadius: "20px",
                     backgroundColor: "#121212",
                     p: 3,
-                    pb: `${24 + keyboardOffset}px`, // 👈 учёт клавиатуры
+                    pb: `${32 + keyboardOffset}px`, // 👈 учёт клавиатуры
                     transition: "padding-bottom 0.3s ease",
                 },
             }}

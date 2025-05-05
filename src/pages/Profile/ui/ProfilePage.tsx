@@ -6,7 +6,7 @@ import { UserGreeting } from '@/widgets/UserGreeting';
 import {JSX} from "react";
 import { UserAssets } from '@/widgets/UserAssets';
 import { UserTokens } from '@/widgets/UserTokens';
-// import { TopTokens } from '@/widgets/TopTokens';
+import { TopTokens } from '@/widgets/TopTokens';
 
 
 type ProfilePageProps = {
@@ -17,11 +17,15 @@ const ProfilePage = ({ className }: ProfilePageProps): JSX.Element => {
     return (
         <Page>
             <GradientHeader title={'Профиль'}/>
-            <Box sx={{ px: 2, py: 4, display: 'flex', flexDirection: 'column', gap: 2, bgcolor: 'black' }}>
-                <UserGreeting />
-                <UserAssets />
-                <UserTokens />
-                {/*<TopTokens />*/}
+            <Box sx={{ py: 6, display: 'flex', flexDirection: 'column', gap: 2, bgcolor: 'black', overflowY: 'auto', height: '100%' }}>
+                <Box px={2} zIndex={2}>
+                    <UserGreeting />
+                </Box>
+                <Box px={2} zIndex={2}>
+                    <UserAssets />
+                </Box>
+                <UserTokens  />
+                <TopTokens />
             </Box>
         </Page>
     );
