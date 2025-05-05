@@ -90,10 +90,20 @@ export const BuyTokenModal = ({ open, onClose }: BuyTokenModalProps) => {
                     "& .MuiInputLabel-root.Mui-focused": {
                         color: "#7FE860",
                     },
-                    mb: 3,
+
                 }}
             />
-
+            <Typography
+                sx={{
+                    fontSize: 13,
+                    color: 'rgba(255, 255, 255, 0.4)',
+                    mb: 2, // отступ снизу перед кнопкой
+                    ml: '16px', // небольшой отступ слева
+                    pt:'8px'
+                }}
+            >
+                Доступно к покупке: 200 шт.
+            </Typography>
             <Button
                 fullWidth
                 variant="contained"

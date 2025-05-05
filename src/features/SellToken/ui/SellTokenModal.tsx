@@ -68,7 +68,7 @@ export const SellTokenModal = ({ open, onClose }: SellTokenModalProps) => {
             </Box>
 
 
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" flexDirection="column">
                 <TextField
                     fullWidth
                     label="Сумма $SHIB"
@@ -127,6 +127,47 @@ export const SellTokenModal = ({ open, onClose }: SellTokenModalProps) => {
                     }}
                 />
 
+                <TextField
+                    fullWidth
+                    label="Стоимость за шт"
+                    placeholder="Минимум ₽20 "
+                    variant="outlined"
+                    type="number"
+                    inputProps={{
+                        inputMode: "numeric",
+                        pattern: "[0-9]*",
+                    }}
+                    onFocus={scrollIntoViewOnFocus}
+                    InputProps={{
+                        sx: {
+                            borderRadius: "9999px",
+                            backgroundColor: "#1E1E1E",
+                            color: "white",
+                            paddingRight: "12px", // чтобы текст не наезжал на кнопку
+                        },
+                    }}
+                    InputLabelProps={{
+                        sx: {
+                            color: "#777",
+                            fontSize: "14px",
+                            marginBottom: "2px",
+                            "&.Mui-focused": {
+                                color: "#7FE860",
+                                transform: "translate(20px, -7px) scale(0.75)",
+                            },
+                        },
+                    }}
+                    sx={{
+                        input: { color: "white" },
+                        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#7FE860",
+                        },
+                        "& .MuiInputLabel-root.Mui-focused": {
+                            color: "#7FE860",
+                        },
+                        mb: 3,
+                    }}
+                />
 
             </Box>
 
