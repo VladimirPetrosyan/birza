@@ -1,17 +1,18 @@
-import { Box, Typography } from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import React from 'react';
-import { Sparkline } from '@/shared/ui/SparkLine/SparkLine';
+import {Sparkline} from '@/shared/ui/SparkLine/SparkLine';
 import Strelka from '@/shared/assets/icons/Strelka.svg?react'
 
 type Props = {
-    icon: React.FC<React.SVGProps<SVGSVGElement>>;
-    name: string;
-    ticker: string;
-    amount: string;
-    price: string;
-    trend: 'up' | 'down';
-    chartData?: number[];
-    variant?: 'default' | 'order';
+    icon: React.FC<React.SVGProps<SVGSVGElement>>,
+    name: string,
+    ticker: string,
+    amount: string,
+    price: string,
+    trend: 'up' | 'down',
+    chartData?: number[],
+    variant?: 'default' | 'order',
+    key?: number
 };
 
 export const TokenCard = ({
@@ -23,6 +24,7 @@ export const TokenCard = ({
                               trend,
                               chartData,
                               variant = 'default',
+                              key
                           }: Props) => {
     return (
         <Box
@@ -32,7 +34,7 @@ export const TokenCard = ({
             py={1}
             gap={2}
         >
-            <Icon width={36} height={36} style={{ borderRadius: '50%' }} />
+            <Icon width={36} height={36} style={{borderRadius: '50%'}}/>
 
             <Box
                 sx={{
@@ -46,9 +48,9 @@ export const TokenCard = ({
                 }}
             >
                 <Box display="flex" alignItems="center" gap={3}>
-                    <Box sx={{ textAlign: 'left' }}>
+                    <Box sx={{textAlign: 'left'}}>
                         <Typography color="white">{ticker}</Typography>
-                        <Typography variant="caption" sx={{ color: '#888' }}>
+                        <Typography variant="caption" sx={{color: '#888'}}>
                             {amount} шт.
                         </Typography>
                     </Box>
@@ -63,10 +65,10 @@ export const TokenCard = ({
                             flexDirection: 'row',
                         }}>
                             <Box textAlign="right" display='flex' flexDirection="column">
-                                <Typography color="white" fontWeight={600} width='100%' >
+                                <Typography color="white" fontWeight={600} width='100%'>
                                     {price} за шт.
                                 </Typography>
-                                <Typography variant="caption" sx={{ color: '#888' }}>
+                                <Typography variant="caption" sx={{color: '#888'}}>
                                     ≈{price} ср. цена
                                 </Typography>
                             </Box>
@@ -86,7 +88,7 @@ export const TokenCard = ({
                                 flex={1}
                                 justifyContent="center"
                             >
-                                <Sparkline data={chartData} trend={trend} />
+                                <Sparkline data={chartData} trend={trend}/>
                             </Box>
                         )}
                         <Box textAlign="right">

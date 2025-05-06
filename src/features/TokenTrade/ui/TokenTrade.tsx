@@ -1,27 +1,35 @@
 import React from 'react';
 import { Button, Box } from '@mui/material';
-import { useTradeActions } from '../model/useTradeActions';
-import { BuyTokenModal } from '@/features/buyToken/ui/BuyTokenModal';
-import SellIcon from '@/shared/assets/icons/sell.svg?react';
+import { BuyTokenModal } from '@/features/BuyToken/ui/BuyTokenModal';
+import { SellTokenModal } from '@/features/SellToken';
 import BuyIcon from '@/shared/assets/icons/buy.svg?react';
-import { SellTokenModal } from "@/features/SellToken";
+import SellIcon from '@/shared/assets/icons/sell.svg?react';
+import { useTradeModals } from '@/shared/ui/Modal/useTradeModals';
+import { UserOrdersModal } from '@/features/UserOrdersModal';
 
+type Props = {
+    useUserFlow?: boolean;
+};
 
-export const TokenTrade = () => {
+export const TokenTrade = ({ useUserFlow = false }: Props) => {
     const {
-        isBuyModalOpen,
+        openBuyToken,
+        closeBuyToken,
+        isBuyTokenOpen,
+        openSellModal,
+        closeSellModal,
         isSellModalOpen,
-        buy,
-        sell,
-        closeBuy,
-        closeSell,
-    }  = useTradeActions();
+        isUserOrdersOpen,
+        openUserOrders,
+        closeUserOrders,
+        onUserSelected,
+    } = useTradeModals();
 
     return (
         <>
-            <Box display="flex" gap={2}  px={2} zIndex={2}>
+            <Box display="flex" gap={2}>
                 <Button
-                    onClick={sell}
+                    onClick={openSellModal}
                     variant="contained"
                     startIcon={<SellIcon width={20} height={20} />}
                     sx={{
@@ -33,16 +41,15 @@ export const TokenTrade = () => {
                         fontWeight: 400,
                         fontSize: 16,
                         py: 1.5,
-                        '&:hover': {
-                            bgcolor: '#6bd552',
-                        },
+                        '&:hover': { bgcolor: '#6bd552' },
+                        zIndex: 3,
                     }}
                 >
                     Продать
                 </Button>
 
                 <Button
-                    onClick={buy}
+                    onClick={useUserFlow ? openUserOrders : openBuyToken}
                     variant="contained"
                     startIcon={<BuyIcon width={20} height={20} />}
                     sx={{
@@ -54,18 +61,25 @@ export const TokenTrade = () => {
                         fontWeight: 400,
                         fontSize: 16,
                         py: 1.5,
-                        '&:hover': {
-                            bgcolor: '#6bd552',
-                        },
+                        '&:hover': { bgcolor: '#6bd552' },
+                        zIndex: 3,
                     }}
                 >
                     Купить
                 </Button>
             </Box>
 
-            {/* Модалка Покупки */}
-            <BuyTokenModal open={isBuyModalOpen} onClose={closeBuy} />
-            <SellTokenModal open={isSellModalOpen} onClose={closeSell} />
+            <BuyTokenModal open={isBuyTokenOpen} onClose={closeBuyToken} />
+            <SellTokenModal open={isSellModalOpen} onClose={closeSellModal} />
+
+            {/* только если useUserFlow */}
+            {useUserFlow && (
+                <UserOrdersModal
+                    open={isUserOrdersOpen}
+                    onClose={closeUserOrders}
+                    onUserSelect={onUserSelected}
+                />
+            )}
         </>
     );
 };

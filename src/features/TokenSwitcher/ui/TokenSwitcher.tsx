@@ -12,7 +12,6 @@ export const TokenSwitcher = () => {
             display="flex"
             alignItems="center"
             justifyContent="space-between"
-            px={2}
             paddingTop={'36px'}
             zIndex={2}
         >

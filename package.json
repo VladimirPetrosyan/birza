@@ -18,6 +18,7 @@
     "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
     "@telegram-apps/bridge": "^2.8.2",
+    "framer-motion": "^12.10.0",
     "react-router-dom": "^7.5.3",
     "recharts": "^2.15.3",
     "zustand": "^5.0.4"

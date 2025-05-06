@@ -5,6 +5,7 @@ import { PageLoader } from '@/shared/ui/PageLoader';
 import { MenuBar } from '@/widgets/MenuBar';
 import { MainPageAsync as MainPage } from '@/pages/MainPage/MainPage.async';
 import {ProfilePageAsync as ProfilePage} from "@/pages/Profile/ui/ProfilePage.async";
+import {ExchangePageAsync as ExchangePage} from "@/pages/ExchangePage/ExchangePage.async";
 
 const getElement = (
     Element: LazyExoticComponent<FC<{ className?: string; }>>,
@@ -30,5 +31,11 @@ export const routes = createBrowserRouter([
         path: '/profile',
         element: getElement(ProfilePage, true),
         errorElement: <div>Страница не найдена</div>, // желательно добавить
+    },
+    {
+        path: '/exchange',
+        element: getElement(ExchangePage, true),
+        errorElement: <div>Страница не найдена</div>, // желательно добавить
     }
+
 ]);

@@ -1,6 +1,6 @@
 import { Box, Typography, TextField, Button, Modal } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
-import { useMenuBarStore } from '@/shared/store/menuBar';
+import { useMenuBarStore } from '@/shared/store/MenuBar';
 import {useLockScroll} from "@/shared/hooks/useLockScroll";
 
 type Props = {

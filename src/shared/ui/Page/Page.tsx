@@ -1,9 +1,8 @@
 // shared/ui/Page.tsx
 import {Box, SxProps} from '@mui/material';
 import { MenuBar } from '@/widgets/MenuBar';
-import { useEffect, useRef, useState } from 'react';
-import React from "react";
-import { useMenuBarStore } from '@/shared/store/menuBar';
+import React, { useEffect, useRef, useState } from 'react';
+import { useMenuBarStore } from '@/shared/store/MenuBar';
 
 type PageProps = {
     children: React.ReactNode;

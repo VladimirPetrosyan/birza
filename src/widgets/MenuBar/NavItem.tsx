@@ -20,6 +20,7 @@ export const NavItem = ({label, icon: Icon, to, isActive, key}: Props) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 minWidth: isActive ? 110 : 64,
+                minHeight: 64,
                 padding: isActive ? '8px 16px 8px 8px' : 0,
                 borderRadius: 40,
                 background: 'rgba(255, 255, 255, 0.1)',

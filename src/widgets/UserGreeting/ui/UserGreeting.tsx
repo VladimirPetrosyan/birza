@@ -19,7 +19,6 @@ export const UserGreeting = () => {
             display="flex"
             alignItems="center"
             justifyContent="space-between"
-            px={2}
             pt={'36px'}
         >
             {/* Левая часть: Аватар + текст */}
